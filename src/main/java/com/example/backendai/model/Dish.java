@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 
 public class Dish {
+    private int id;
     private String dishName;
     private int rating;
     private int people;
