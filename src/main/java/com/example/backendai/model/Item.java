@@ -1,9 +1,6 @@
 package com.example.backendai.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Item {
@@ -13,6 +10,9 @@ public class Item {
     private String INGNAME;
     private double INGAMOUNT;
     private String INGMEASUREMENT;
+    @ManyToOne
+    @JoinColumn(name = "shoppinglist", referencedColumnName = "id")
+    private ShoppingList shoppingList;
 
 
     public int getId() {
@@ -45,5 +45,13 @@ public class Item {
 
     public void setINGMEASUREMENT(String measure) {
         this.INGMEASUREMENT = measure;
+    }
+
+    public ShoppingList getShoppingList() {
+        return shoppingList;
+    }
+
+    public void setShoppingList(ShoppingList shoppingList) {
+        this.shoppingList = shoppingList;
     }
 }

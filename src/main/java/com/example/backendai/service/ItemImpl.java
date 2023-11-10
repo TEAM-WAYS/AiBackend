@@ -1,7 +1,7 @@
 package com.example.backendai.service;
 
 import com.example.backendai.model.Item;
-import com.example.backendai.repository.ShoppingListRepository;
+import com.example.backendai.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,30 +10,29 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class ShoppingLRImpl implements ShoppingListRepositoryInterface {
-
+public class ItemImpl implements ItemInterface{
     @Autowired
-    ShoppingListRepository shoppingListRepository;
+    ItemRepository itemRepository;
     @Override
     public List<Item> getItems() {
-        List<Item> lst = shoppingListRepository.findAll();
-        return lst;
+        return itemRepository.findAll();
     }
 
-    @Override
+
     public boolean addToShoppigList(ArrayList<Item> list) {
         for(Item item : list){
-            Optional<Item> lookingFor = shoppingListRepository.findAllByName(item.getINGNAME());
+            Optional<Item> lookingFor = itemRepository.findAllByName(item.getINGNAME());
             if(lookingFor.isPresent()){
                 lookingFor.get().setINGAMOUNT(lookingFor.get().getINGAMOUNT() + item.getINGAMOUNT());
             }else{
-                shoppingListRepository.save(item);
+                itemRepository.save(item);
             }
         }
-
-
-
-
         return true;
     }
+
+
+
+
+
 }
