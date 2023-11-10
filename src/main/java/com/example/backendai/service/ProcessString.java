@@ -45,7 +45,7 @@ public class ProcessString {
                         int i = 0;
                         for (int j= 0; j < part.length(); j++) {
                             if (Character.isDigit(part.charAt(i))) {
-                                amount += Character.getNumericValue(part.charAt(i))*(int)Math.pow(10,i);
+                                amount = amount * 10  + Character.getNumericValue(part.charAt(i));
 
                                 i++;
                             }else if (amount!=0 ) {
