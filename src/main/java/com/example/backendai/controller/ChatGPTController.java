@@ -33,13 +33,13 @@ public class ChatGPTController {
         chatRequest.setMessages(lstMessages);
         chatRequest.setN(1); //n er antal svar fra chatgpt
         chatRequest.setTemperature(1); //jo højere jo mere fantasifuldt svar (se powerpoint)
-        chatRequest.setMaxTokens(30); //længde af svar
+        chatRequest.setMaxTokens(1000); //længde af svar
         chatRequest.setStream(false); //stream = true, er for viderekomne, der kommer flere svar asynkront
         chatRequest.setPresencePenalty(1);
 
         ChatResponse response = webClient.post()
                 .contentType(MediaType.APPLICATION_JSON)
-                .headers(h -> h.setBearerAuth("insert api key"))
+                .headers(h -> h.setBearerAuth("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"))
                 .bodyValue(chatRequest)
                 .retrieve()
                 .bodyToMono(ChatResponse.class)

@@ -1,16 +1,19 @@
 package com.example.backendai.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Recipe {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String NAME;
-    private String DESCRIPTION;
-    private String INGREDIENTS;
-    private String INSTRUCTIONS;
+    private String name;
+    @Column(columnDefinition = "TEXT")
+    private String description;
+    @Column(columnDefinition = "TEXT")
+    private String ingredients;
+    @Column(columnDefinition = "TEXT")
+    private String instructions;
 
     public int getId() {
         return id;
@@ -20,35 +23,35 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getNAME() {
-        return NAME;
+    public String getName() {
+        return name;
     }
 
-    public void setNAME(String NAME) {
-        this.NAME = NAME;
+    public void setName(String NAME) {
+        this.name = NAME;
     }
 
-    public String getDESCRIPTION() {
-        return DESCRIPTION;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDESCRIPTION(String DESCRIPTION) {
-        this.DESCRIPTION = DESCRIPTION;
+    public void setDescription(String DESCRIPTION) {
+        this.description = DESCRIPTION;
     }
 
-    public String getINGREDIENTS() {
-        return INGREDIENTS;
+    public String getIngredients() {
+        return ingredients;
     }
 
-    public void setINGREDIENTS(String INGREDIENTS) {
-        this.INGREDIENTS = INGREDIENTS;
+    public void setIngredients(String INGREDIENTS) {
+        this.ingredients = INGREDIENTS;
     }
 
-    public String getINSTRUCTIONS() {
-        return INSTRUCTIONS;
+    public String getInstructions() {
+        return instructions;
     }
 
-    public void setINSTRUCTIONS(String INSTRUCTIONS) {
-        this.INSTRUCTIONS = INSTRUCTIONS;
+    public void setInstructions(String INSTRUCTIONS) {
+        this.instructions = INSTRUCTIONS;
     }
 }

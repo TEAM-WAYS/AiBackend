@@ -16,7 +16,7 @@ public class RecipeController {
     @Autowired
     private RecipeService recipeService;
 
-    @GetMapping("/Recipes")
+    @GetMapping("/recipes")
     public ResponseEntity<List<Recipe>> getRecipe() {
         List<Recipe> recipeList = recipeService.getRecipe();
 
@@ -27,7 +27,7 @@ public class RecipeController {
         }
     }
 
-    @PostMapping("/Recipes")
+    @PostMapping("/recipes")
     public ResponseEntity<?> postRecipe(@RequestBody Recipe recipe) {
         Optional<Recipe> savedRecipe = recipeService.postRecipe(recipe);
 
@@ -38,7 +38,7 @@ public class RecipeController {
         }
     }
 
-    @PutMapping("/Recipes")
+    @PutMapping("/recipes")
     public ResponseEntity<?> putRecipe(@RequestBody Recipe recipe) {
         Optional<Recipe> foundRecipe = recipeService.putRecipe(recipe);
 
@@ -49,7 +49,7 @@ public class RecipeController {
         }
     }
 
-    @DeleteMapping("/Recipes/delete/{id}")
+    @DeleteMapping("/recipes/delete/{id}")
     public ResponseEntity<ApiResponse> deleteRecipe(@PathVariable int id) {
         Boolean foundRecipe = recipeService.deleteRecipe(id);
 
