@@ -1,4 +1,4 @@
-package com.example.backendai.repository;
+package com.example.backendai.repositories;
 
 import com.example.backendai.model.Recipe;
 import org.springframework.data.jpa.repository.JpaRepository;

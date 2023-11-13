@@ -1,7 +1,7 @@
 package com.example.backendai.service;
 
 import com.example.backendai.model.Recipe;
-import com.example.backendai.repository.RecipeRepository;
+import com.example.backendai.repositories.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
